@@ -1,16 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Ubuntu:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .container{
     display: flex;
     gap: 1.5em;
-    margin-top: 100px;
     margin-bottom: 100px;
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.containers{
+    display: flex;
+    gap: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.containers h1{
+    text-align: center;
+}
+.containers h3{
+    text-align:unset;
+}
+
+.titulo{
+    display: flex;
+    gap: 1.5em;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.info{
+    margin: 100px 5px 20px 5px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+#it-info h1,h2{
+    text-align: center;
+    margin: 10px 0;
 }
 
 header{
@@ -26,6 +66,18 @@ header{
 
 nav{    
     float: left;/*Dejar el menú a la izquierda*/
+    display: flex;
+}
+
+#logo{
+    flex-basis: 100px;
+}
+
+nav div img{
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
 }
 
 img{
