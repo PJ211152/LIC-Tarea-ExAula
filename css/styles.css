@@ -56,6 +56,7 @@
 header{
     position: fixed;
     display: flex;
+    flex-wrap: nowrap;
     top: 0;
     width: 100%;
     height: auto;
@@ -91,7 +92,7 @@ img{
 
 img:hover{
     
-    transform: scale(1.05, 1.05);
+    transform: scale(1.01, 1.01);
 }
 
 .item{
