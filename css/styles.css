@@ -34,7 +34,7 @@
 .titulo{
     display: flex;
     gap: 1.5em;
-    margin-top: 100px;
+    margin-top: 120px;
     margin-bottom: 50px;
     justify-content: center;
     flex-wrap: wrap;
