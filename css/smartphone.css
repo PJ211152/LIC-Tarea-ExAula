@@ -22,3 +22,7 @@ nav ul li a{/*La propia opcion dentro de la lista*/
     color: aqua;
     text-decoration: none;
 }
+
+.admin_container{
+    width: 250px;
+}
