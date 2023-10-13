@@ -205,3 +205,42 @@ nav ul li:hover{/*Se activa con el cursor sobre el elemento*/
     max-height: 232px;
     width: 100%;
 }
+
+.login{
+    padding: 15px;
+    background-color:#9A9A9A;
+    border-radius: 15px;
+    width: 60%;
+    height: auto;
+    align-content: center;
+    text-align: center;
+}
+
+.login p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login input{
+    width: 30%;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#BtnLogin{
+    margin-top: 10px;
+    background-color: #2056DB;
+    border: 0;
+    color: #959595;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#BtnLogin:hover{
+    color: white;
+}
+
+#BtnLogin:active{
+    color: black;
+}
