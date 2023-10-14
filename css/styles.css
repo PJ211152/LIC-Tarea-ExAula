@@ -277,4 +277,38 @@ nav ul li:hover{/*Se activa con el cursor sobre el elemento*/
     border-radius: 15px;
 }
 
+#informacion_usuario{
+    box-shadow: 20px rgba(255, 255, 255, 0.3);
 
+}
+
+#informacion_usuario > * {
+    padding: 1em;
+    align-content: center;
+}
+
+#informacion_usuario form{
+    margin:0;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#informacion_usuario form button,
+#informacion_usuario form input,
+#informacion_usuario form select,
+#informacion_usuario form textarea{
+    width: 100%;
+    padding: 0.7em;
+    border: none;
+    background: none;
+    outline: 0;
+    border-bottom: 1px solid #2056DB;
+}
+
+#informacion_usuario form button{
+    background: white;
+    border: 0;
+    text-transform: uppercase;
+    padding: 1em;
+}
