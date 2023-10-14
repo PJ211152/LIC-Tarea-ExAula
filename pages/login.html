@@ -13,15 +13,15 @@
         <nav>
             <div id="logo"><label for="" class="brand"><a href="../index.html"><img src="../img/logo.png"></a></label></div>
             <ul class="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="info.html">Información del recorrido</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="../index.html" id="idBtnInicio">Inicio</a></li>
+                <li><a href="info.html" id="idBtnInfo">Información del recorrido</a></li>
+                <li><a href="galeria.html" id="idBtnGaleria">Galería</a></li>
+                <li><a href="login.html" id="idBtnLogin">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="contenedor_login">
+    <div class="contenedor_login" id="idDivLogin">
 
         <div class="info">
             <div id="it-info">
@@ -34,14 +34,13 @@
             <input placeholder="Ingresar usuario" id="Txtusuario">
             <p>Contraseña</p>
             <input placeholder="Ingresar Contraseña" id="TxtContrasena" type="password"><br>
-            <button id="BtnLogin"><a href="registro.html">Iniciar Sesion</a></button>
-        </div>
-        <hr>
-        <div id="impresion">
-
+            <button id="BtnLogin">Iniciar Sesion</button>
         </div>
 
     </div>
+        <div id="impresion">
+
+        </div>
 
     <script src="../js/login.js" defer></script>
 </body>
