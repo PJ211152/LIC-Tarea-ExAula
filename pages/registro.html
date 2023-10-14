@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../img/icono.png">
+    <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
+    <title>Registro de usuarios</title>
+</head>
+<body id="in">
+    <header>
+        <nav>
+            <div id="logo"><label for="" class="brand"><a href="../index.html"><img src="../img/logo.png"></a></label></div>
+            <ul class="menu">
+                <li><a href="info.html">Cambiar tarifa</a></li>
+                <li><a href="tickets.html">Ingresos</a></li>
+                <li><a href="login.html">Desconectarse</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="info">
+            <div class="it-info">
+                <h1>Registro de nuevo usuario</h1>
+                <div id="informacion_usuario">
+                    <h3>Ingreso de Información</h3>
+                    <form action="">
+                        <p><label for="fullName">Nombre Completo</label></p>
+                        <input type="text" name="fullName" id="fullName">
+
+                        <p><label for="eMail">Dirección de correo</label></p>
+                        <input type="email" name="email" id="eMail">
+
+                        <p><label for="telefono">Número de teléfono</label></p>
+                        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{4}-[0-9]{4}" required>
+
+                        <p><label for="cargo">Cargo</label></p>
+                        <select name="cargo" id="cargo">
+                            <option value="0" selected>Administrador</option>
+                            <option value="1">Empleado</option>
+                        </select>
+
+                        <p>
+                            <button type="submit" id="registrar">Registrar Empleado</button>
+                        </p>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
