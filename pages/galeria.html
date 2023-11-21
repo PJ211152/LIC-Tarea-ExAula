@@ -7,22 +7,52 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="shortcut icon" href="../img/icono.png">
     <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
     <title>Galeria</title>
 </head>
 
 <body id="in">
-    <header>
-        <nav>
-            <div id="logo"><label for="" class="brand"><a href="../index.html"><img src="../img/logo.png"></a></label></div>
-            <ul class="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="info.html">Información del recorrido</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light navColor">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i>
+                            Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del
+                            recorrido</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-people-fill"></i> Sesion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
+                            <li><a class="dropdown-item" href="login.html">Iniciar sesion</a></li>
+                            <li><a class="dropdown-item" href="pages/register.html">Registrarse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="icon_compra">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container1">
 
         <div class="info">
             <div id="it-info">
@@ -36,24 +66,74 @@
             </div>
         </div>
 
-        <div class="item"><img src="../img/img1.jpg" id="img-1"><span>Restaurante Jardin Celeste</span></div>
-        <div class="item"><img src="../img/img2.jpg"><span>Mural #1 (Cafetaleras)</span></div>
-        <div class="item"><img src="../img/img3.jpg"><span>Casas llenas de murales</span></div>
-        <div class="item"><img src="../img/img4.jpg"><span>Ventas de artesanias</span></div>
-        <div class="item"><img src="../img/img5.jpg"><span>Mural #2 (Vistas generales)</span></div>
-        <div class="item"><img src="../img/img6.jpg"><span>Tienda tradicional de Ataco</span></div>
-        <div class="item"><img src="../img/img7.jpg"><span>Estatua de la Virgen de la Inmaculada (Parque Concepcion de Ataco) </span></div>
-        <div class="item"><img src="../img/img8.jpg"><span>Fuente en el parque Concepcion de Ataco</span></div>
-        <div class="item"><img src="../img/img9.jpg"><span>Parroquia Cristo Negro</span></div>
-        <div class="item"><img src="../img/img10.jpg"><span>Tienda tradicional de Ataco (Frente)</span></div>
-        
-    </div>
-    <footer class="container-footer">
-        <div class="item_footer-1">
-            <span>Derechos reservados</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="item"><img src="../img/img1.jpg" id="img-1"><span>Restaurante Jardin Celeste</span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item"><img src="../img/img2.jpg"><span>Mural #1 (Cafetaleras)</span></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="item"><img src="../img/img3.jpg"><span>Casas llenas de murales</span></div>
+                </div>
+                <div class="col-6">
+                    <div class="item"><img src="../img/img4.jpg"><span>Ventas de artesanias</span></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="item"><img src="../img/img5.jpg"><span>Mural #2 (Vistas generales)</span></div>
+                </div>
+                <div class="col-6">
+                    <div class="item"><img src="../img/img6.jpg"><span>Tienda tradicional de Ataco</span></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="item"><img src="../img/img7.jpg"><span>Estatua de la Virgen de la Inmaculada (Parque
+                            Concepcion de Ataco) </span></div>
+                </div>
+                <div class="col-6">
+                    <div class="item"><img src="../img/img8.jpg"><span>Fuente en el parque Concepcion de Ataco</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="item"><img src="../img/img9.jpg"><span>Parroquia Cristo Negro</span></div>
+                </div>
+                <div class="col-6">
+                    <div class="item"><img src="../img/img10.jpg"><span>Tienda tradicional de Ataco (Frente)</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="#in" id="button_up">Inicio</a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 fontCenter fontWhite">
+                    <span>Derechos reservados</span>
+                </div>
+            </div>
+
+            <hr class="fontWhite">
+
+            <div class="row">
+                <div class="col-12 fontCenter">
+
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -33,7 +33,13 @@
                         <input type="email" name="email" id="eMail">
 
                         <p><label for="telefono">Número de teléfono</label></p>
-                        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{4}-[0-9]{4}" required>
+                        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{4}[0-9]{4}" required>
+
+                        <p><label for="fullName">Contraseña</label></p>
+                        <input type="password" name="Password" id="pass">
+
+                        <p><label for="fullName">Confirmar Contraseña</label></p>
+                        <input type="password" name="repPassword" id="repPass">
 
                         <p><label for="cargo">Cargo</label></p>
                         <select name="cargo" id="cargo">
@@ -42,7 +48,7 @@
                         </select>
 
                         <p>
-                            <button type="submit" id="registrar">Registrar Empleado</button>
+                            <button  id="registrar">Registrar Empleado</button>
                         </p>
                         
                     </form>
@@ -50,5 +56,7 @@
             </div>
         </div>
     </div>
+
+    <script src="../js/register.js" defer></script>
 </body>
 </html>

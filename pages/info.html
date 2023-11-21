@@ -6,20 +6,49 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
     <link rel="shortcut icon" href="../img/icono.png">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
     <title>Información</title>
 </head>
-<body id="in">
-    <header>
-        <nav>
-            <div id="logo"><label for="" class="brand"><a href="../index.html"><img src="../img/logo.png"></a></label></div>
-            <ul class="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="info.html">Información del recorrido</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navColor">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i>
+                            Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del
+                            recorrido</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-people-fill"></i> Sesion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
+                            <li><a class="dropdown-item" href="login.html">Iniciar sesion</a></li>
+                            <li><a class="dropdown-item" href="pages/register.html">Registrarse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="icon_compra">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <h1 class="titulo">Tarifa de ruta de las flores</h1>
     <div class="containers">
         <div id="it-2" class="item"><h1>Tarifa:</h1><span>Al ser un ruta de varios lugares y no un sitio único con precios de entrada, cada persona que quiera recorrer este destino turístico, debera de ser conciente de que podrá pasar mas de un dia recorriendolo, y asi mismo teniendo que pagar por alojamiento, comida, bebida, y cualquier otra necesidad</span></div>
@@ -34,11 +63,24 @@
         <div id="it-3" class="item"><h1>Horario único</h1><span>al ser un recorrido, cada establesimiento tiene un horario propio aunque normalmente, los establecimientos de comida estan desde las 6am hasta las 9pm, de igual forma se recomienda llegar temprano a reservar alojamiento</span></div>
         <div id="it-4" class="item"><img src="../img/img5.jpg" ></div>
     </div>
-    <footer class="container-footer">
-        <div class="item_footer-1">
-            <span>Derechos reservados</span>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 fontCenter fontWhite">
+                    <span>Derechos reservados</span>
+                </div>
+            </div>
+
+            <hr class="fontWhite">
+
+            <div class="row">
+                <div class="col-12 fontCenter">
+
+                </div>
+            </div>
         </div>
-        <a href="#in" id="button_up">Inicio</a>
     </footer>
+
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
