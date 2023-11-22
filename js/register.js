@@ -1,4 +1,11 @@
-import {saveProduct, getProduct, getProductListSize, deleteProduct, updateProduct, getProducts} from "./firebase.js";
+import {
+  saveProduct,
+  getProduct,
+  getProductListSize,
+  deleteProduct,
+  updateProduct,
+  getProducts,
+} from "./firebase.js";
 
 const idNombre = document.getElementById("inputName");
 const idLastName = document.getElementById("inputApellido");
@@ -11,39 +18,50 @@ const btnRegistrar = document.getElementById("btnRegistrar");
 
 function validar() {
   let errorValue = 0;
-  if (
-    idNombre.value != "" &&
-    idCorreo.value != "" &&
-    idLastName.value != "" &&
-    idUsername.value != "" &&
-    idContra.value != "" &&
-    idRepContra.value != ""
-  ) {
-    if (idContra.value == idRepContra.value) {
-      errorValue = 0;
+  const sesion = JSON.parse(sessionStorage.getItem("sesion"));
+  if(sesion != null){
+    if (sesion.admin == true) {
+      if (
+        idNombre.value != "" &&
+        idCorreo.value != "" &&
+        idLastName.value != "" &&
+        idUsername.value != "" &&
+        idContra.value != "" &&
+        idRepContra.value != ""
+      ) {
+        if (idContra.value == idRepContra.value) {
+          errorValue = 0;
+        } else {
+          errorValue = 2;
+        }
+      } else {
+        errorValue = 1;
+      }
+  
+      return errorValue;
     } else {
-      errorValue = 2;
+      errorValue = 5;
+      return errorValue;
     }
-  } else {
-    errorValue = 1;
+  }else{
+    errorValue = 5;
+    return errorValue;
   }
-
-  return errorValue;
 }
 
-function construirUser(){
+function construirUser() {
   const isAdmin = false;
-  if(idPuesto.value == 0){
+  if (idPuesto.value == 0) {
     isAdmin = true;
   }
-  const user ={
+  const user = {
     admin: isAdmin,
     nombre: `${idNombre.value}`,
     apellido: `${idLastName.value}`,
     correo: `${idCorreo.value}`,
     username: `${idUsername.value}`,
-    password: `${idContra.value}`
-  }
+    password: `${idContra.value}`,
+  };
 
   return user;
 }
@@ -54,12 +72,9 @@ async function registrar() {
   let encontrado = false;
 
   user.forEach((element) => {
-
     const actual = element.data();
 
-    if (
-      idUsername.value == actual.username
-    ) {
+    if (idUsername.value == actual.username) {
       encontrado = true;
       return true;
     } else {
@@ -67,14 +82,13 @@ async function registrar() {
     }
   });
 
-  if(encontrado == false){
+  if (encontrado == false) {
     const user = construirUser();
-    alertify.success('Usuario registrado');
-    await saveProduct(user, 'usuarios');
-  }else{
+    alertify.success("Usuario registrado");
+    await saveProduct(user, "usuarios");
+  } else {
     alertify.alert("El usuario ya existe");
   }
-  
 }
 
 function errorCatch() {
@@ -91,6 +105,12 @@ function errorCatch() {
 
     case 2:
       alertify.error("Las contraseñas no coinciden");
+      break;
+    case 5:
+      alertify.alert("No tienes permiso para esto");
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 1500);
   }
 }
 
