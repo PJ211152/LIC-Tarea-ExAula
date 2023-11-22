@@ -1,62 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="shortcut icon" href="../img/icono.png">
-    <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
-    <title>Registro de usuarios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="shortcut icon" href="../img/icono.png">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../alertifyjs/css/alertify.min.css">
+  <link rel="stylesheet" href="../alertifyjs/css/themes/default.min.css">
+  <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
+  <title>Registro de usuarios</title>
 </head>
+
 <body id="in">
-    <header>
-        <nav>
-            <div id="logo"><label for="" class="brand"><a href="../index.html"><img src="../img/logo.png"></a></label></div>
-            <ul class="menu">
-                <li><a href="tickets.html">Tickets</a></li>
-                <li><a href="tarifa.html">Tarifas</a></li>
-                <li><a href="login.html">Desconectarse</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light navColor">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Registro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del recorrido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-people-fill"></i> Sesion
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
+              <li><a class="dropdown-item" href="login.html">Iniciar sesion</a></li>
             </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="info">
-            <div class="it-info">
-                <h1>Registro de nuevo usuario</h1>
-                <div id="informacion_usuario">
-                    <h3>Ingreso de Información</h3>
-                    <form action="">
-                        <p><label for="fullName">Nombre Completo</label></p>
-                        <input type="text" name="fullName" id="fullName">
+          </li>
+          <li class="nav-item" id="icon_compra">
 
-                        <p><label for="eMail">Dirección de correo</label></p>
-                        <input type="email" name="email" id="eMail">
-
-                        <p><label for="telefono">Número de teléfono</label></p>
-                        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{4}[0-9]{4}" required>
-
-                        <p><label for="fullName">Contraseña</label></p>
-                        <input type="password" name="Password" id="pass">
-
-                        <p><label for="fullName">Confirmar Contraseña</label></p>
-                        <input type="password" name="repPassword" id="repPass">
-
-                        <p><label for="cargo">Cargo</label></p>
-                        <select name="cargo" id="cargo">
-                            <option value="0" selected>Administrador</option>
-                            <option value="1">Empleado</option>
-                        </select>
-
-                        <p>
-                            <button  id="registrar">Registrar Empleado</button>
-                        </p>
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+  <div class="container1">
+    <div class="container">
+      <h3 class="fontCenter">Registro de informacion</h3>
+      <div class="form-container">
+        <div class="row">
+          <div class="col-6">
+            <label for="inputNombre">Nombre:</label>
+            <input class="form-control" placeholder="Nombre" id="inputName" name="inputNombre">
+          </div>
+          <div class="col-6">
+            <label for="inputApellido">Apellido:</label>
+            <input class="form-control" placeholder="Apellido" id="inputApellido" name="inputApellido">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <label for="inputUsername">Nombre de usuario:</label>
+            <input class="form-control" placeholder="Ingrese su nombre de usuario" id="inputUsername"
+              name="inputUsername">
+          </div>
+          <div class="col-6">
+            <label for="inputCorreo">Correo:</label>
+            <input class="form-control" placeholder="Ingrese su correo" id="inputCorreo" name="inputCorreo">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <label for="inputPass">Contraseña:</label>
+            <input class="form-control" placeholder="Ingrese su contraseña" id="inputPass" name="inputPass">
+          </div>
+          <div class="col-6">
+            <label for="inputRepPass">Repertir contraseña:</label>
+            <input class="form-control" placeholder="Repita su contraseña" id="inputRepPass" name="inputRepPass">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <label for="selectCargo">Seleccione el cargo:</label>
+          <select class="form-control" name="selectCargo" id="selectCargo">
+            <option value="0" selected>Administrador</option>
+            <option value="1">Empleado</option>
+          </select>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-success mt-3" id="btnRegistrar">Registrar</button>
+        </div>
+      </div>
 
-    <script src="../js/register.js" defer></script>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 fontCenter fontWhite">
+          <span>Derechos reservados</span>
+        </div>
+      </div>
+
+      <hr class="fontWhite">
+
+      <div class="row">
+        <div class="col-12 fontCenter">
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../alertifyjs/alertify.min.js"></script>
+  <script type="module" src="../js/register.js" defer></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/general.js"></script>
 </body>
+
 </html>

@@ -9,12 +9,6 @@ body{
     min-height: 100vh;
 }
 
-.navColor{
-    background-color: #989898;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
 .container1{
     gap: 1.5em;
     justify-content: center;
@@ -306,7 +300,7 @@ body{
 }
 
 .navColor{
-    background-color: #51D093;
+    background-color: #989898;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }

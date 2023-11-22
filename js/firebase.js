@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db=getFirestore();
 
 export const saveProduct=(product, table)=>{
-    addDoc(collection(db,'tarifas'),product);
+    addDoc(collection(db,table),product);
   }
 
   export const getProducts=(table)=>getDocs(collection(db,table))

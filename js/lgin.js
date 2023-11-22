@@ -32,6 +32,7 @@ async function login(){
             alert(`Bienvenido ${actual.nombre}`)
             saveLocalSesion(actual);
             encontrado = true;
+            window.location.href = '../index.html';
             return true;
         }else{
             encontrado = false;

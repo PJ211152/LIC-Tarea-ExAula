@@ -1,21 +1,26 @@
-const idNombre = document.getElementById("fullName");
-const idCorreo = document.getElementById("eMail");
-const idTelefono = document.getElementById("telefono");
-const idContra = document.getElementById("pass");
-const idRepContra = document.getElementById("repPass");
-const idPuesto = document.getElementById("cargo");
-const btnRegistrar = document.getElementById("registrar");
+import {saveProduct, getProduct, getProductListSize, deleteProduct, updateProduct, getProducts} from "./firebase.js";
+
+const idNombre = document.getElementById("inputName");
+const idLastName = document.getElementById("inputApellido");
+const idCorreo = document.getElementById("inputCorreo");
+const idUsername = document.getElementById("inputUsername");
+const idContra = document.getElementById("inputPass");
+const idRepContra = document.getElementById("inputRepPass");
+const idPuesto = document.getElementById("selectCargo");
+const btnRegistrar = document.getElementById("btnRegistrar");
 
 function validar() {
   let errorValue = 0;
   if (
-    idNombre != "" &&
-    idCorreo != "" &&
-    idTelefono != "" &&
-    idContra != "" &&
-    idRepContra != ""
+    idNombre.value != "" &&
+    idCorreo.value != "" &&
+    idLastName.value != "" &&
+    idUsername.value != "" &&
+    idContra.value != "" &&
+    idRepContra.value != ""
   ) {
-    if (idTelefono.value.length == 8) {
+    if (idContra.value == idRepContra.value) {
+      errorValue = 0;
     } else {
       errorValue = 2;
     }
@@ -26,12 +31,69 @@ function validar() {
   return errorValue;
 }
 
-btnRegistrar.onclick = function () {
-  if (validar() == 0) {
-    alert("si");
-  } else if (validar() == 1) {
-    alert("Rellene todos los campos");
-  } else if (validar() == 2) {
-    alert("ingrese un numero telefonico valido");
+function construirUser(){
+  const isAdmin = false;
+  if(idPuesto.value == 0){
+    isAdmin = true;
   }
+  const user ={
+    admin: isAdmin,
+    nombre: `${idNombre.value}`,
+    apellido: `${idLastName.value}`,
+    correo: `${idCorreo.value}`,
+    username: `${idUsername.value}`,
+    password: `${idContra.value}`
+  }
+
+  return user;
+}
+
+async function registrar() {
+  const table = "usuarios";
+  const user = await getProducts(table);
+  let encontrado = false;
+
+  user.forEach((element) => {
+
+    const actual = element.data();
+
+    if (
+      idUsername.value == actual.username
+    ) {
+      encontrado = true;
+      return true;
+    } else {
+      encontrado = false;
+    }
+  });
+
+  if(encontrado == false){
+    const user = construirUser();
+    alertify.success('Usuario registrado');
+    await saveProduct(user, 'usuarios');
+  }else{
+    alertify.alert("El usuario ya existe");
+  }
+  
+}
+
+function errorCatch() {
+  const errorType = validar();
+
+  switch (errorType) {
+    case 0:
+      registrar();
+      break;
+
+    case 1:
+      alertify.error("Por favor llene todos los campos");
+      break;
+
+    case 2:
+      alertify.error("Las contraseñas no coinciden");
+  }
+}
+
+btnRegistrar.onclick = function () {
+  errorCatch();
 };
