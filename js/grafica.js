@@ -136,5 +136,12 @@ function general() {
 }
 
 setTimeout(() => {
-  general();
+  if(localStorage.getItem('sesion')){
+    general();
+  }else{
+    alertify.alert('No tienes permiso para estar aqui');
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 2000);
+  }
 }, 1000);

@@ -16,20 +16,29 @@ const idRepContra = document.getElementById("inputRepPass");
 const idPuesto = document.getElementById("selectCargo");
 const btnRegistrar = document.getElementById("btnRegistrar");
 
-function limpiar(){
-  idNombre.value = '';
-  idLastName.value = '';
-  idCorreo.value = '';
-  idUsername.value = '';
-  idContra.value = '';
-  idRepContra.value = '';
+function limpiar() {
+  idNombre.value = "";
+  idLastName.value = "";
+  idCorreo.value = "";
+  idUsername.value = "";
+  idContra.value = "";
+  idRepContra.value = "";
   focus(idNombre);
+}
+
+function validarEmail(inputText) {
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (inputText.value.match(mailformat)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function validar() {
   let errorValue = 0;
   const sesion = JSON.parse(sessionStorage.getItem("sesion"));
-  if(sesion != null){
+  if (sesion != null) {
     if (sesion.admin == true) {
       if (
         idNombre.value != "" &&
@@ -39,21 +48,25 @@ function validar() {
         idContra.value != "" &&
         idRepContra.value != ""
       ) {
-        if (idContra.value == idRepContra.value) {
-          errorValue = 0;
+        if (validarEmail(idCorreo) == true) {
+          if (idContra.value == idRepContra.value) {
+            errorValue = 0;
+          } else {
+            errorValue = 2;
+          }
         } else {
-          errorValue = 2;
+          errorValue = 3;
         }
       } else {
         errorValue = 1;
       }
-  
+
       return errorValue;
     } else {
       errorValue = 5;
       return errorValue;
     }
-  }else{
+  } else {
     errorValue = 5;
     return errorValue;
   }
@@ -61,7 +74,7 @@ function validar() {
 
 function construirUser() {
   let isAdmin = false;
-  if (idPuesto.value == '0') {
+  if (idPuesto.value == "0") {
     isAdmin = true;
   }
   const user = {
@@ -84,7 +97,10 @@ async function registrar() {
   user.forEach((element) => {
     const actual = element.data();
 
-    if (idUsername.value == actual.username || idCorreo.value == actual.correo) {
+    if (
+      idUsername.value == actual.username ||
+      idCorreo.value == actual.correo
+    ) {
       encontrado = true;
       return true;
     }
@@ -94,7 +110,7 @@ async function registrar() {
     const user = construirUser();
     alertify.success("Usuario registrado");
     await saveProduct(user, "usuarios");
-    limpiar()
+    limpiar();
   } else {
     alertify.alert("El usuario o correo ya existe");
   }
@@ -115,6 +131,9 @@ function errorCatch() {
     case 2:
       alertify.error("Las contraseñas no coinciden");
       break;
+      case 3:
+        alertify.error('Email invalido');
+        break;
     case 5:
       alertify.alert("No tienes permiso para esto");
       setTimeout(() => {

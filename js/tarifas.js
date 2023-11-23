@@ -39,9 +39,10 @@ async function subirNuevaTarifa() {
 
     if (inputTarifas.value == element.id) {
       const tarifaId = inputTarifas.value;
+      const newMoney = inputCambioTarifa.value;
       const newPrice = {
         nombre: actual.nombre,
-        precio: inputCambioTarifa.value,
+        precio: Math.round(newMoney*100)/100,
       };
       updateProduct(tarifaId, newPrice, table);
       alertify.alert("Precio Cambiado con exito");
@@ -74,4 +75,12 @@ btnAceptar.onclick = function () {
   }, 1000);
 };
 
-cargarTarifas();
+if (sessionStorage.getItem("sesion") ) {
+  cargarTarifas();
+}else{
+    alertify.alert('No tienes permiso para estar aqui');
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 2000);
+}
+

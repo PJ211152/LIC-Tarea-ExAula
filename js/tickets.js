@@ -1,122 +1,118 @@
 import {
-    saveProduct,
-    getProduct,
-    getProductListSize,
-    deleteProduct,
-    updateProduct,
-    getProducts,
-  } from "./firebase.js";
+  saveProduct,
+  getProduct,
+  getProductListSize,
+  deleteProduct,
+  updateProduct,
+  getProducts,
+} from "./firebase.js";
 
-const idCliente = document.getElementById('idCliente');
-const idInputNombre = document.getElementById('inputNombreCiente');
-const idInputNumero = document.getElementById('inputNumero');
-const idMonto = document.getElementById('idMonto');
-const IsNiños = document.getElementById('selectIsNiños');
-const btnCalcular = document.getElementById('idBtnCalcular');
-const containerNinos = document.getElementById('idFormniños');
-const containerFactura = document.getElementById('container-factura');
+const idCliente = document.getElementById("idCliente");
+const idInputNombre = document.getElementById("inputNombreCiente");
+const idInputNumero = document.getElementById("inputNumero");
+const idMonto = document.getElementById("idMonto");
+const IsNiños = document.getElementById("selectIsNiños");
+const btnCalcular = document.getElementById("idBtnCalcular");
+const containerNinos = document.getElementById("idFormniños");
+const containerFactura = document.getElementById("container-factura");
 
-
-let numberNinos=0;
+let numberNinos = 0;
 let priceNinos;
 
-function id(){
-    const id = uuid.v4();
-    idCliente.value = id;
-};
+function id() {
+  const id = uuid.v4();
+  idCliente.value = id;
+}
 
 //Obtiene las tarifas de la base de datos y la coloca en el select
-async function tarifas(){
-    const table = "tarifas";
-    const tarifas = await getProducts(table);
-    
-    tarifas.forEach((element) => {
+async function tarifas() {
+  const table = "tarifas";
+  const tarifas = await getProducts(table);
 
-        const actual = element.data();
+  tarifas.forEach((element) => {
+    const actual = element.data();
 
-        if(actual.nombre != 'Precio para niños'){
-            idMonto.innerHTML +=`
+    if (actual.nombre != "Precio para niños") {
+      idMonto.innerHTML += `
             <option value="${actual.precio}">${actual.nombre} = $${actual.precio}</option>
-            `
-        }else{
-            priceNinos = actual.precio;
-        }
-    
-        
-      })
-};
+            `;
+    } else {
+      priceNinos = actual.precio;
+    }
+  });
+}
 
 //Funcion para mostrar el input de numero de niños cuando la casilla vendra con niños este activa
-function putNinos(){
-    IsNiños.onchange = function(){
-        if(IsNiños.value == 1){
-            containerNinos.innerHTML = `
+function putNinos() {
+  IsNiños.onchange = function () {
+    if (IsNiños.value == 1) {
+      containerNinos.innerHTML = `
         <label for="inputNinos">Numero de niños</label>
         <input type="number" class="form-control" name="inputNinos" id="inputNinos">
             `;
-            const inputNinos = document.getElementById('inputNinos')
-            inputNinos.onchange = function(){
-                if(inputNinos.value > 0){
-                    numberNinos = parseInt(inputNinos.value);
-                }else{
-                    inputNinos.value = '0';
-                }
-            }
-        }else{
-            containerNinos.innerHTML = '';
-            numberNinos = 0;
+      const inputNinos = document.getElementById("inputNinos");
+      inputNinos.onchange = function () {
+        if (inputNinos.value > 0) {
+          numberNinos = parseInt(inputNinos.value);
+        } else {
+          inputNinos.value = "0";
         }
+      };
+    } else {
+      containerNinos.innerHTML = "";
+      numberNinos = 0;
     }
-};
-
-function validar(){
-    let error = true;
-    if(idInputNombre.value != '' && idInputNumero.value != ''){
-        if(idInputNumero.value.length == 8){
-            calcular();
-        }else{
-            alertify.error('Ingrese un numero de telefono valido')
-        }
-
-    }else{
-        alertify.error('Rellene todos los campos solicitados')
-    }
+  };
 }
 
-function calcularPrecioTotal(montoEstandar){
-    const total = montoEstandar + parseInt(numberNinos)*parseFloat(priceNinos);
-    return total;
-}
-
-async function enviarTicket(id,clientName,cellphone,total){
-    const fecha = new Date();
-    const dia = fecha.getDate();
-    const mes = fecha.getMonth() + 1;
-    const anno = fecha.getFullYear()
-    const ticket ={
-        id: id,
-        nombre: clientName,
-        numero: cellphone,
-        monto: total,
-        dia: dia,
-        mes: mes,
-        año: anno
+function validar() {
+  let error = true;
+  if (idInputNombre.value != "" && idInputNumero.value != "") {
+    if (idInputNumero.value.length == 8) {
+      calcular();
+    } else {
+      alertify.error("Ingrese un numero de telefono valido");
     }
-
-    await saveProduct(ticket, "tickets");
-    alertify.alert('Ticket Guardado con exito');
-    setTimeout(() =>{window.location.href = 'tickets.html'}, 1000)
-
+  } else {
+    alertify.error("Rellene todos los campos solicitados");
+  }
 }
 
-function calcular(){
-    const id = idCliente.value;
-    const name = idInputNombre.value;
-    const cellphone = idInputNumero.value;
-    const tip = parseFloat(idMonto.value);
-    const total = calcularPrecioTotal(tip);
+function calcularPrecioTotal(montoEstandar) {
+  const total = montoEstandar + parseInt(numberNinos) * parseFloat(priceNinos);
+  return total;
+}
 
-    containerFactura.innerHTML = `
+async function enviarTicket(id, clientName, cellphone, total) {
+  const fecha = new Date();
+  const dia = fecha.getDate();
+  const mes = fecha.getMonth() + 1;
+  const anno = fecha.getFullYear();
+  const ticket = {
+    id: id,
+    nombre: clientName,
+    numero: cellphone,
+    monto: total,
+    dia: dia,
+    mes: mes,
+    año: anno,
+  };
+
+  await saveProduct(ticket, "tickets");
+  alertify.alert("Ticket Guardado con exito");
+  setTimeout(() => {
+    window.location.href = "tickets.html";
+  }, 1000);
+}
+
+function calcular() {
+  const id = idCliente.value;
+  const name = idInputNombre.value;
+  const cellphone = idInputNumero.value;
+  const tip = parseFloat(idMonto.value);
+  const total = calcularPrecioTotal(tip);
+
+  containerFactura.innerHTML = `
     <div class="container_U">
     <div class='row mt-3'>
     <div class="col-6">
@@ -148,18 +144,25 @@ function calcular(){
     <div>
     </div>
     </div>
-    `
-    const btnAceptar = document.getElementById('btnAceptar');
+    `;
+  const btnAceptar = document.getElementById("btnAceptar");
 
-    btnAceptar.onclick = function(){
-        enviarTicket(id,name,cellphone,total);
-    }
+  btnAceptar.onclick = function () {
+    enviarTicket(id, name, cellphone, total);
+  };
 }
 
-btnCalcular.onclick = function(){
-    validar();
-}
+btnCalcular.onclick = function () {
+  validar();
+};
 
- id();
- putNinos();
- tarifas();
+if (sessionStorage.getItem("sesion")) {
+  id();
+  putNinos();
+  tarifas();
+}else{
+    alertify.alert('No tienes permiso para estar aqui');
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 2000);
+}
