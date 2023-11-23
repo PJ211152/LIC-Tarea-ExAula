@@ -136,7 +136,7 @@ function general() {
 }
 
 setTimeout(() => {
-  if(localStorage.getItem('sesion')){
+  if(sesionStorage.getItem('sesion')){
     general();
   }else{
     alertify.alert('No tienes permiso para estar aqui');
