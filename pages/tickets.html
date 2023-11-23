@@ -1,100 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="shortcut icon" href="../img/icono.png">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
-    <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
-    <title>Registro de usuarios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="shortcut icon" href="../img/icono.png">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../alertifyjs/css/alertify.min.css">
+  <link rel="stylesheet" href="../alertifyjs/css/themes/default.min.css">
+  <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
+  <title>Registro de usuarios</title>
 </head>
+
 <body id="in">
-    <nav class="navbar navbar-expand-lg navbar-light navColor">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Tickets</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i> Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del recorrido</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-people-fill"></i> Sesion
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
-                  <li><a class="dropdown-item" href="login.html" >Iniciar sesion</a></li>
-                </ul>
-              </li>
-              <li class="nav-item" id="icon_compra">
-                
-              </li>
+  <nav class="navbar navbar-expand-lg navbar-light navColor">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Tickets</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del recorrido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-people-fill"></i> Sesion
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
+              <li><a class="dropdown-item" href="login.html">Iniciar sesion</a></li>
             </ul>
-          </div>
-        </div>
-      </nav>
-    <div class="container1">
-        <div class="info">
-            <div class="it-info">
-                <h1>Tickets</h1>
-                <div id="informacion_usuario">
-                    <h3>Ingreso de Información</h3>
-                    <form action="">
-                        <p><label for="idCliente">ID. del Cliente</label></p>
-                        <p><label id="idCliente">ID</label></p>
+          </li>
+          <li class="nav-item" id="icon_compra">
 
-                        <p><label for="fullName">Nombre del Cliente</label></p>
-                        <input type="text" name="fullName" id="fullName">
-
-                        <p><label for="idDireccion">Dirección del cliente</label></p>
-                        <textarea name="direccion" id="idDireccion" cols="30" rows="10"></textarea>
-
-                        <p><label for="telefono">Número de teléfono</label></p>
-                        <input type="tel" name="telefono" id="telefono" pattern="[0-9]{4}-[0-9]{4}" required>
-
-                        <p><label for="idPrecio">Cargo</label></p>
-                        <select name="idPrecio" id="idPrecio">
-                            <option value="0" selected>20</option>
-                            <option value="1">30</option>
-                        </select>
-                         document.write(fecha.getDate() + "/" + (fecha.getMonth() +1) + "/" fecha.getFullYear());
-                        <p>
-                            <button type="submit" id="registrar">Emitir Factura</button>
-                        </p>
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 fontCenter fontWhite">
-                    <span>Derechos reservados</span>
-                </div>
-            </div>
-
-            <hr class="fontWhite">
-
-            <div class="row">
-                <div class="col-12 fontCenter">
-
-                </div>
-            </div>
+  </nav>
+  <div class="container1">
+    <h3 class="fontCenter mb-5">Registro de tickets</h3>
+    <div class="form-container">
+      <div class="row">
+        <div class="col-6">
+          <label for="idCliente">Id de ticket</label>
+          <input type="text" class="form-control" name="idCliente" id="idCliente" disabled>
         </div>
-    </footer>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/general.js"></script>
+        <div class="col-6">
+          <label for="inputNombreCiente">Nombre del cliente</label>
+          <input type="text" class="form-control" name="inputNombreCiente" id="inputNombreCiente">
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6">
+          <label for="inputNumero">Numero de telefono</label>
+          <input type="number" class="form-control" name="inputNumero" id="inputNumero">
+        </div>
+        <div class="col-6">
+          <label for="idMonto">Tarifa</label>
+          <select class="form-control" name="idMonto" id="idMonto">
+          </select>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-6">
+          <label for="niños">¿Vendra con niños?</label>
+          <select name="niños" id="selectIsNiños" class="form-control">
+            <option value="0">No</option>
+            <option value="1">Si</option>
+          </select>
+        </div>
+        <div class="col-6" id="idFormniños">
+
+        </div>
+      </div>
+      <div class="row mt-4">
+        <button class="btn btn-success" id="idBtnCalcular">Calcular</button>
+      </div>
+      <div class="row mt-3" id="container-factura">
+
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 fontCenter fontWhite">
+          <span>Derechos reservados</span>
+        </div>
+      </div>
+
+      <hr class="fontWhite">
+
+      <div class="row">
+        <div class="col-12 fontCenter">
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../alertifyjs/alertify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/general.js"></script>
+  <script type="module" src="../js/tickets.js" defer></script>
 </body>
+
 </html>

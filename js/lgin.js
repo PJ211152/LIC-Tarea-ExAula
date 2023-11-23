@@ -38,7 +38,6 @@ async function login() {
       inputUser.value == actual.username &&
       inputPass.value == actual.password
     ) {
-      alertify.alert(`Bienvenido ${actual.nombre}`);
       encontrado = true;
       saveLocalSesion(actual);
       window.location.href = "../index.html";
