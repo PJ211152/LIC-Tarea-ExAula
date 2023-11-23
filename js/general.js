@@ -19,6 +19,7 @@ function general() {
           <li><a class="dropdown-item" href="pages/registro.html" >Registrar Empleados</a></li>
           <li><a class="dropdown-item" href="pages/tarifa.html" >Tarifas</a></li>
           <li><a class="dropdown-item" href="pages/tickets.html" >Tickets</a></li>
+          <li><a class="dropdown-item" href="pages/grafica.html" >Graficos</a></li>
           <li><a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a></li>
           `;
           const btnCerrarSesion = document.getElementById('btnCerrarSesion');
@@ -28,6 +29,7 @@ function general() {
           <li><a class="dropdown-item" href="registro.html" >Registrar Empleados</a></li>
           <li><a class="dropdown-item" href="tarifa.html">Tarifas</a></li>
           <li><a class="dropdown-item" href="tickets.html">Tickets</a></li>
+          <li><a class="dropdown-item" href="grafica.html">Graficos</a></li>
           <li><a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a></li>
           `;
           const btnCerrarSesion = document.getElementById('btnCerrarSesion');
@@ -36,7 +38,7 @@ function general() {
     }else{
         if (document.URL.includes("index.html")) {
             dropSesionMenu.innerHTML = `
-          <li><a class="dropdown-item" href="pages/tarifa.html" >Tarifas</a></li>
+          <li><a class="dropdown-item" href="pages/grafica.html" >Graficos</a></li>
           <li><a class="dropdown-item" href="pages/tickets.html">Tickets</a></li>
           <li><a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a></li>
           `;
@@ -44,7 +46,7 @@ function general() {
           btnCerrarSesion.onclick = function(){cerrarSesion()}
           } else {
               dropSesionMenu.innerHTML = `
-          <li><a class="dropdown-item" href="tarifa.html">Tarifas</a></li>
+          <li><a class="dropdown-item" href="grafica.html">Graficos</a></li>
           <li><a class="dropdown-item" href="tickets.html">Tickets</a></li>
           <li><a class="dropdown-item" id="btnCerrarSesion">Cerrar sesion</a></li>
           `;
