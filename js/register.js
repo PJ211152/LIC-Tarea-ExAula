@@ -16,6 +16,16 @@ const idRepContra = document.getElementById("inputRepPass");
 const idPuesto = document.getElementById("selectCargo");
 const btnRegistrar = document.getElementById("btnRegistrar");
 
+function limpiar(){
+  idNombre.value = '';
+  idLastName.value = '';
+  idCorreo.value = '';
+  idUsername.value = '';
+  idContra.value = '';
+  idRepContra.value = '';
+  focus(idNombre);
+}
+
 function validar() {
   let errorValue = 0;
   const sesion = JSON.parse(sessionStorage.getItem("sesion"));
@@ -50,8 +60,8 @@ function validar() {
 }
 
 function construirUser() {
-  const isAdmin = false;
-  if (idPuesto.value == 0) {
+  let isAdmin = false;
+  if (idPuesto.value == '0') {
     isAdmin = true;
   }
   const user = {
@@ -74,11 +84,9 @@ async function registrar() {
   user.forEach((element) => {
     const actual = element.data();
 
-    if (idUsername.value == actual.username) {
+    if (idUsername.value == actual.username || idCorreo.value == actual.correo) {
       encontrado = true;
       return true;
-    } else {
-      encontrado = false;
     }
   });
 
@@ -86,8 +94,9 @@ async function registrar() {
     const user = construirUser();
     alertify.success("Usuario registrado");
     await saveProduct(user, "usuarios");
+    limpiar()
   } else {
-    alertify.alert("El usuario ya existe");
+    alertify.alert("El usuario o correo ya existe");
   }
 }
 

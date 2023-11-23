@@ -1,71 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="shortcut icon" href="../img/icono.png">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
-    <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
-    <title>Gestor de Tarifas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="shortcut icon" href="../img/icono.png">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../bootstrap/icons/bootstrap-icons-1.11.1/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../alertifyjs/css/alertify.min.css">
+  <link rel="stylesheet" href="../alertifyjs/css/themes/default.min.css">
+  <link type="text/css" rel="stylesheet" href="../css/smartphone.css" media="screen and (max-width: 520px)">
+  <title>Gestor de Tarifas</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navColor">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Tarifas</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i> Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del recorrido</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-people-fill"></i> Sesion
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
-                  <li><a class="dropdown-item" href="login.html" >Iniciar sesion</a></li>
-                </ul>
-              </li>
-              <li class="nav-item" id="icon_compra">
-                
-              </li>
+  <nav class="navbar navbar-expand-lg navbar-light navColor">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="../img/logo.png" class="iconContainer"> Tarifas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html"><i class="bi-house"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="info.html"><i class="bi bi-map-fill"></i> informacion del recorrido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html"><i class="bi bi-card-text"></i> Galeria</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-people-fill"></i> Sesion
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="formSesion">
+              <li><a class="dropdown-item" href="login.html">Iniciar sesion</a></li>
             </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="container1">
+          </li>
+          <li class="nav-item" id="icon_compra">
 
+          </li>
+        </ul>
       </div>
-      <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 fontCenter fontWhite">
-                    <span>Derechos reservados</span>
-                </div>
-            </div>
+    </div>
+  </nav>
+  <div class="container1">
+    <h2>Gestor de tarifas</h2>
+    <div class="row mt-5">
+      <div class="col-12">
+        <label for="name">Elija la tarifa a editar:</label>
+        <select name="name" id="idInputTarifas" class="form-control">
 
-            <hr class="fontWhite">
+        </select>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <label for="idNewPrice">Ingrese el nuevo monto:</label>
+        <input name="idNewPrice" type="number" id="idNewPrice" class="form-control">
 
-            <div class="row">
-                <div class="col-12 fontCenter">
+        </select>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 fontCenter">
+        <button class="btn btn-success" id="btnCambiar" disabled>Aceptar</button>
 
-                </div>
-            </div>
+        </select>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 fontCenter fontWhite">
+          <span>Derechos reservados</span>
         </div>
-    </footer>
+      </div>
 
-    <script type="module" src="../js/tarifas.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/general.js"></script>
+      <hr class="fontWhite">
+
+      <div class="row">
+        <div class="col-12 fontCenter">
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/tarifas.js"></script>
+  <script src="../alertifyjs/alertify.min.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="../js/general.js"></script>
 </body>
+
 </html>
